@@ -7,7 +7,7 @@ part of 'item_controller.dart';
 // **************************************************************************
 
 final $ItemController = BindInject(
-  (i) => ItemController(i<ItemRepository>(), i<ShareService>()),
+  (i) => ItemController(i<ItemRepository>()),
   singleton: true,
   lazy: true,
 );

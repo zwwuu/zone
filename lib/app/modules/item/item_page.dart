@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:mobx/mobx.dart';
-import 'package:url_launcher/url_launcher.dart';
 
+import '../../shared/util/url.dart';
 import '../../shared/widgets/loading_indicator.dart';
 import 'item_controller.dart';
 import 'widgets/comment/comment.dart';
@@ -87,21 +86,13 @@ class _ItemPageState extends ModularState<ItemPage, ItemController> {
                         icon: Icon(MdiIcons.web),
                         tooltip: 'Open in browser',
                         onPressed: () async {
-                          var url = hasWebContent ? item.url : 'https://news.ycombinator.com/${item.url}';
-
-                          if (await canLaunch(url)) {
-                            await launch(url);
-                          } else {
-                            Fluttertoast.showToast(
-                              msg: 'Could not open $url',
-                            );
-                          }
+                          await UrlUtil().launchUrl(item.url);
                         },
                       ),
                       IconButton(
                         icon: Icon(MdiIcons.shareVariant),
                         onPressed: () {
-                          controller.share(title: item.title, url: item.url);
+                          UrlUtil().share(title: item.title, url: item.url);
                         },
                       ),
                     ],

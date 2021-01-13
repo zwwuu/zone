@@ -5,12 +5,10 @@ import 'app_controller.dart';
 import 'app_widget.dart';
 import 'modules/home/home_module.dart';
 import 'modules/item/item_module.dart';
-import 'services/share_service.dart';
 
 class AppModule extends MainModule {
   @override
   List<Bind> get binds => [
-        $ShareService,
         $AppController,
       ];
 

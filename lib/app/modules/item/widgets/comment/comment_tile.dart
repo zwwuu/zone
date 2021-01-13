@@ -5,9 +5,9 @@ import 'package:flutter_html/style.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hnpwa_client/hnpwa_client.dart';
 import 'package:html/parser.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-import '../../../../util/subtitle_formatter.dart';
+import '../../../../shared/util/subtitle_formatter.dart';
+import '../../../../shared/util/url.dart';
 
 class CommentTile extends StatelessWidget {
   final List<Item> comments;
@@ -39,13 +39,7 @@ class CommentTile extends StatelessWidget {
               'body': Style(margin: EdgeInsets.zero),
             },
             onLinkTap: (url) async {
-              if (await canLaunch(url)) {
-                await launch(url);
-              } else {
-                Fluttertoast.showToast(
-                  msg: 'Could not open $url',
-                );
-              }
+              await UrlUtil().launchUrl(url);
             },
           ),
           subtitle: Text.rich(

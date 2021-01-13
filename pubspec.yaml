@@ -14,7 +14,7 @@ vars:
 scripts:
   build: $runner build --delete-conflicting-outputs
   watch: $clean & $get & $runner watch
-  apk: $get & $runner build --delete-conflicting-outputs & $icon & $build apk  --split-per-abi
+  apk: $get & $runner build --delete-conflicting-outputs & $icon & $build apk --split-per-abi
   appbundle: $get & $runner build --delete-conflicting-outputs & $icon & $build appbundle
 environment:
   sdk: ">=2.7.0 <3.0.0"

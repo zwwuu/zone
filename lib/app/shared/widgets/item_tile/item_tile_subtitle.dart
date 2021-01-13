@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../util/subtitle_formatter.dart';
+import '../../util/subtitle_formatter.dart';
 
 class ItemTileSubtitle extends StatelessWidget {
   final String user;
