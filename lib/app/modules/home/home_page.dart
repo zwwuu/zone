@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:incrementally_loading_listview/incrementally_loading_listview.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../shared/models/feed_type.dart';
+import '../../shared/util/url.dart';
 import '../../shared/widgets/item_tile/item_tile.dart';
 import '../../shared/widgets/loading_indicator.dart';
 import 'home_controller.dart';
@@ -20,7 +22,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends ModularState<HomePage, HomeController> {
   ReactionDisposer _disposer;
 
-  final _scrollController = ScrollController();
+  final ScrollController _scrollController = ScrollController();
+  final SlidableController _slidableController = SlidableController();
 
   @override
   void initState() {
@@ -52,11 +55,9 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: DropdownButtonHideUnderline(
                 child: DropdownButton<String>(
-                  dropdownColor: Colors.grey,
                   value: controller.feedType.name,
                   icon: Icon(
                     MdiIcons.chevronDown,
-                    color: Colors.white,
                   ),
                   onChanged: (newValue) {
                     controller.feedType = newValue.parseFeedType();
@@ -68,7 +69,6 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                         value.name.toUpperCase(),
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Colors.white,
                         ),
                       ),
                     );
@@ -145,16 +145,37 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
 
               return Column(
                 children: [
-                  ItemTile(
-                    title: item.title,
-                    user: item.user,
-                    points: item.points,
-                    domain: item.domain,
-                    commentsCount: item.commentsCount,
-                    timeAgo: item.timeAgo,
-                    onTap: () {
-                      Modular.to.pushNamed('/item/${item.id}');
-                    },
+                  Slidable(
+                    key: Key(item.id.toString()),
+                    controller: _slidableController,
+                    actionExtentRatio: 0.2,
+                    actionPane: SlidableDrawerActionPane(),
+                    child: ItemTile(
+                      title: item.title,
+                      user: item.user,
+                      points: item.points,
+                      domain: item.domain,
+                      commentsCount: item.commentsCount,
+                      timeAgo: item.timeAgo,
+                      onTap: () {
+                        Modular.to.pushNamed('/item/${item.id}');
+                      },
+                    ),
+                    secondaryActions: <Widget>[
+                      IconSlideAction(
+                        caption: 'Bookmark',
+                        color: Colors.deepOrange,
+                        icon: MdiIcons.bookmark,
+                      ),
+                      IconSlideAction(
+                        caption: 'Share',
+                        color: Colors.indigo,
+                        icon: MdiIcons.shareVariant,
+                        onTap: () {
+                          UrlUtil().share(title: item.title, url: item.url);
+                        },
+                      ),
+                    ],
                   ),
                 ],
               );
