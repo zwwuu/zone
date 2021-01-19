@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:incrementally_loading_listview/incrementally_loading_listview.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:mobx/mobx.dart';
@@ -98,6 +99,13 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                   ),
                   Spacer(),
                   IconButton(
+                    icon: Icon(MdiIcons.bookmark),
+                    tooltip: 'Bookmarks',
+                    onPressed: () {
+                      Modular.to.pushNamed('/bookmarks');
+                    },
+                  ),
+                  IconButton(
                     icon: Icon(MdiIcons.refresh),
                     tooltip: 'Refresh',
                     onPressed: () {
@@ -166,6 +174,14 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                         caption: 'Bookmark',
                         color: Colors.deepOrange,
                         icon: MdiIcons.bookmark,
+                        onTap: () {
+                          if (item.key == null) {
+                            controller.addBookmark(item);
+                            Fluttertoast.showToast(
+                              msg: 'Bookmark added',
+                            );
+                          }
+                        },
                       ),
                       IconSlideAction(
                         caption: 'Share',

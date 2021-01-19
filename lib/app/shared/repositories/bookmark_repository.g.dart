@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'share_service.dart';
+part of 'bookmark_repository.dart';
 
 // **************************************************************************
 // InjectionGenerator
 // **************************************************************************
 
-final $ShareService = BindInject(
-  (i) => ShareService(),
+final $BookmarkRepository = BindInject(
+  (i) => BookmarkRepository(),
   singleton: true,
   lazy: true,
 );

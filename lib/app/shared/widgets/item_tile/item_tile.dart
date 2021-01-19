@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../../models/item_type.dart';
 import 'item_tile_subtitle.dart';
 
 class ItemTile extends StatelessWidget {
@@ -8,8 +9,10 @@ class ItemTile extends StatelessWidget {
   final String domain;
   final int commentsCount;
   final String timeAgo;
+  final int time;
   final String title;
   final int points;
+  final ItemType type;
   final GestureTapCallback onTap;
 
   const ItemTile({
@@ -20,7 +23,9 @@ class ItemTile extends StatelessWidget {
     this.timeAgo,
     this.title,
     this.points,
+    this.time,
     this.onTap,
+    this.type,
   }) : super(key: key);
 
   @override
@@ -37,6 +42,7 @@ class ItemTile extends StatelessWidget {
           domain: domain,
           commentsCount: commentsCount,
           timeAgo: timeAgo,
+          time: time,
         ),
         onTap: onTap,
       ),

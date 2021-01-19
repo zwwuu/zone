@@ -3,6 +3,7 @@ import 'package:mobx/mobx.dart';
 
 import '../../shared/models/feed_item.dart';
 import '../../shared/models/feed_type.dart';
+import '../../shared/repositories/bookmark_repository.dart';
 import 'repository/home_repository.dart';
 
 part 'home_controller.g.dart';
@@ -12,6 +13,7 @@ class HomeController = _HomeControllerBase with _$HomeController;
 
 abstract class _HomeControllerBase with Store {
   final HomeRepository _repository;
+  final BookmarkRepository _bookmarksRepository;
 
   int _currentPage = 1;
   List<FeedItem> feedItems = [];
@@ -28,7 +30,7 @@ abstract class _HomeControllerBase with Store {
   @observable
   bool isLoadingNextPage = false;
 
-  _HomeControllerBase(this._repository);
+  _HomeControllerBase(this._repository, this._bookmarksRepository);
 
   @action
   Future<void> loadFeedItems() async {
@@ -75,5 +77,9 @@ abstract class _HomeControllerBase with Store {
     } finally {
       isLoadingNextPage = false;
     }
+  }
+
+  void addBookmark(FeedItem item) {
+    _bookmarksRepository.add(item);
   }
 }

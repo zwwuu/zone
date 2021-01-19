@@ -4,6 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import 'app_controller.dart';
 import 'app_widget.dart';
+import 'modules/bookmarks/bookmark_module.dart';
 import 'modules/home/home_module.dart';
 import 'modules/item/item_module.dart';
 
@@ -23,6 +24,10 @@ class AppModule extends MainModule {
         ModularRouter(
           '/item',
           module: ItemModule(),
+        ),
+        ModularRouter(
+          '/bookmarks',
+          module: BookmarkModule(),
         ),
       ];
 

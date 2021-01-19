@@ -7,6 +7,7 @@ class ItemTileSubtitle extends StatelessWidget {
   final String domain;
   final int commentsCount;
   final String timeAgo;
+  final int time;
 
   const ItemTileSubtitle({
     Key key,
@@ -14,6 +15,7 @@ class ItemTileSubtitle extends StatelessWidget {
     this.domain,
     this.commentsCount,
     this.timeAgo,
+    this.time,
   }) : super(key: key);
 
   @override
@@ -22,11 +24,9 @@ class ItemTileSubtitle extends StatelessWidget {
       TextSpan(
         children: <TextSpan>[
           SubtitleFormatter.buildUserText(user),
-          SubtitleFormatter.buildUrlText(domain),
+          SubtitleFormatter.buildDomainText(domain),
           SubtitleFormatter.buildCommentCountText(commentsCount),
-          TextSpan(
-            text: '$timeAgo',
-          ),
+          timeAgo == null ? SubtitleFormatter.buildTimeText(time) : SubtitleFormatter.buildTimeAgoText(timeAgo)
         ],
       ),
     );

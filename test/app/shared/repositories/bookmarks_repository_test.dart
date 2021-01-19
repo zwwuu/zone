@@ -1,22 +1,23 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+import 'package:zone/app/shared/repositories/bookmark_repository.dart';
 
 class MockClient extends Mock implements Dio {}
 
 void main() {
-  // ItemRepository repository;
-  // MockClient client;
+  BookmarkRepository repository;
+  MockClient client;
 
   setUp(() {
-    // repository = ItemRepository();
-    // client = MockClient();
+    repository = BookmarkRepository();
+    client = MockClient();
   });
 
-  group('ItemRepository Test', () {
-    //  test("First Test", () {
-    //    expect(repository, isInstanceOf<ItemRepository>());
-    //  });
+  group('BookmarkRepository Test', () {
+    test("First Test", () {
+      expect(repository, isInstanceOf<BookmarkRepository>());
+    });
 
     test('returns a Post if the http call completes successfully', () async {
       //    when(client.get('https://jsonplaceholder.typicode.com/posts/1'))
