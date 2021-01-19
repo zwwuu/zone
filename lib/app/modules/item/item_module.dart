@@ -1,5 +1,4 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:hnpwa_client/hnpwa_client.dart';
 
 import 'item_controller.dart';
 import 'item_page.dart';
@@ -10,7 +9,6 @@ class ItemModule extends ChildModule {
   List<Bind> get binds => [
         $ItemController,
         $ItemRepository,
-        Bind((i) => HnpwaClient()),
       ];
 
   @override

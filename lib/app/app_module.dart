@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -10,6 +11,7 @@ class AppModule extends MainModule {
   @override
   List<Bind> get binds => [
         $AppController,
+        Bind((i) => Dio(BaseOptions(baseUrl: 'http://api.hackerwebapp.com'))),
       ];
 
   @override

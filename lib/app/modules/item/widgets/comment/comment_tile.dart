@@ -3,9 +3,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_html/style.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:hnpwa_client/hnpwa_client.dart';
 import 'package:html/parser.dart';
 
+import '../../../../shared/models/item.dart';
 import '../../../../shared/util/subtitle_formatter.dart';
 import '../../../../shared/util/url.dart';
 

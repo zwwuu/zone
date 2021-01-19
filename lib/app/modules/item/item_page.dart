@@ -25,7 +25,7 @@ class _ItemPageState extends ModularState<ItemPage, ItemController> {
   @override
   void initState() {
     super.initState();
-    controller.fetchItem(widget.id);
+    controller.loadItem(widget.id);
   }
 
   @override
@@ -115,7 +115,7 @@ class _ItemPageState extends ModularState<ItemPage, ItemController> {
                         icon: Icon(MdiIcons.refresh),
                         label: Text('Retry'),
                         onPressed: () async {
-                          // await controller.loadItem();
+                          await controller.loadItem(widget.id);
                         },
                       )
                     ],

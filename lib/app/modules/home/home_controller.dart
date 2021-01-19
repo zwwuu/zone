@@ -1,7 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:hnpwa_client/hnpwa_client.dart';
 import 'package:mobx/mobx.dart';
 
+import '../../shared/models/feed_item.dart';
 import '../../shared/models/feed_type.dart';
 import 'repository/home_repository.dart';
 
@@ -41,13 +41,34 @@ abstract class _HomeControllerBase with Store {
 
   @action
   Future<void> loadNextPage() async {
+    if (isLoadingNextPage || (_currentPage > 1 && !hasNextPage)) {
+      return;
+    }
+
     try {
-      if (isLoadingNextPage || (_currentPage > 1 && !hasNextPage)) {
-        return;
+      isLoadingNextPage = true;
+      var feed;
+      switch (feedType) {
+        case FeedType.top:
+          feed = await _repository.top(page: _currentPage);
+          break;
+        case FeedType.newest:
+          feed = await _repository.newest(page: _currentPage);
+          break;
+        case FeedType.best:
+          feed = await _repository.best(page: _currentPage);
+          break;
+        case FeedType.ask:
+          feed = await _repository.ask(page: _currentPage);
+          break;
+        case FeedType.show:
+          feed = await _repository.show(page: _currentPage);
+          break;
+        case FeedType.job:
+          feed = await _repository.jobs();
+          break;
       }
 
-      isLoadingNextPage = true;
-      var feed = await _repository.fetchItemFeed(feedType: feedType, page: _currentPage);
       feedItems.addAll(feed.items);
       hasNextPage = feed.hasNextPage;
       _currentPage++;

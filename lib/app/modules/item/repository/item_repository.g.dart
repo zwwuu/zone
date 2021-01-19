@@ -7,7 +7,7 @@ part of 'item_repository.dart';
 // **************************************************************************
 
 final $ItemRepository = BindInject(
-  (i) => ItemRepository(i<HnpwaClient>()),
+  (i) => ItemRepository(i<Dio>()),
   singleton: true,
   lazy: true,
 );

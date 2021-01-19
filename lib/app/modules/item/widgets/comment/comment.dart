@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hnpwa_client/hnpwa_client.dart';
 
+import '../../../../shared/models/item.dart';
 import '../../../../shared/widgets/item_tile/item_tile.dart';
 import 'comment_tile.dart';
 

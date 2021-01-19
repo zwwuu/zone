@@ -1,39 +1,79 @@
+import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:hnpwa_client/hnpwa_client.dart';
 
-import '../../../shared/models/feed_type.dart';
+import '../../../shared/models/feed.dart';
+import '../../../shared/models/feed_item.dart';
 
 part 'home_repository.g.dart';
 
 @Injectable()
 class HomeRepository extends Disposable {
-  final HnpwaClient _hnpwaClient;
+  final Dio _client;
 
-  HomeRepository(this._hnpwaClient);
+  HomeRepository(this._client);
 
-  Future<Feed> fetchItemFeed({FeedType feedType = FeedType.top, int page = 1}) async {
-    Feed feed;
+  Future<Feed> top({int page = 1}) {
+    return _fetchFeed(
+      url: '/news?page=$page',
+      currentPage: page,
+      maxPages: 10,
+    );
+  }
 
-    switch (feedType) {
-      case FeedType.newest:
-        feed = await _hnpwaClient.newest(page: 1);
-        break;
-      case FeedType.ask:
-        feed = await _hnpwaClient.ask(page: page);
-        break;
-      case FeedType.show:
-        feed = await _hnpwaClient.show(page: page);
-        break;
-      case FeedType.job:
-        feed = await _hnpwaClient.jobs();
-        break;
-      case FeedType.top:
-      default:
-        feed = await _hnpwaClient.news(page: page);
-        break;
+  Future<Feed> newest({int page = 1}) {
+    return _fetchFeed(
+      url: '/newest?page=$page',
+      currentPage: page,
+      maxPages: 12,
+    );
+  }
+
+  Future<Feed> best({int page = 1}) {
+    return _fetchFeed(
+      url: '/best?page=$page',
+      currentPage: page,
+      maxPages: 7,
+    );
+  }
+
+  Future<Feed> ask({int page = 1}) {
+    return _fetchFeed(
+      url: '/ask?page=$page',
+      currentPage: page,
+      maxPages: 2,
+    );
+  }
+
+  Future<Feed> show({int page = 1}) {
+    return _fetchFeed(
+      url: '/show?page=$page',
+      currentPage: page,
+      maxPages: 2,
+    );
+  }
+
+  Future<Feed> jobs() {
+    return _fetchFeed(
+      url: '/jobs?page=1',
+      currentPage: 1,
+      maxPages: 1,
+    );
+  }
+
+  Future<Feed> _fetchFeed({String url, int currentPage, int maxPages}) async {
+    final response = await _client.get(url);
+
+    if (response.statusCode == 200) {
+      return Feed.from(
+        feedItems: List.generate(response.data.length, (index) => FeedItem.fromJson(response.data[index])),
+        currentPage: currentPage,
+        hasNextPage: currentPage != maxPages,
+      );
+    } else {
+      throw Exception(
+        'Error Fetching Results: ${response.statusCode}',
+      );
     }
-
-    return feed;
   }
 
   //dispose will be called automatically

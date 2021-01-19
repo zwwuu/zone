@@ -1,5 +1,4 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:hnpwa_client/hnpwa_client.dart';
 
 import 'home_controller.dart';
 import 'home_page.dart';
@@ -10,7 +9,6 @@ class HomeModule extends ChildModule {
   List<Bind> get binds => [
         $HomeController,
         $HomeRepository,
-        Bind((i) => HnpwaClient()),
       ];
 
   @override

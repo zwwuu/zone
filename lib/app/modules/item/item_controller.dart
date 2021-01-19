@@ -1,7 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:hnpwa_client/hnpwa_client.dart';
 import 'package:mobx/mobx.dart';
 
+import '../../shared/models/item.dart';
 import 'repository/item_repository.dart';
 
 part 'item_controller.g.dart';
@@ -25,7 +25,7 @@ abstract class _ItemControllerBase with Store {
   }
 
   @action
-  Future fetchItem(String id) {
+  Future loadItem(String id) {
     return itemFuture = ObservableFuture(_repository.fetchItem(int.parse(id)));
   }
 }

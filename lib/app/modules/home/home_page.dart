@@ -7,6 +7,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:mobx/mobx.dart';
 
 import '../../shared/models/feed_type.dart';
+import '../../shared/util/extensions.dart';
 import '../../shared/util/url.dart';
 import '../../shared/widgets/item_tile/item_tile.dart';
 import '../../shared/widgets/loading_indicator.dart';
@@ -89,7 +90,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                     ),
                     onTap: () {
                       _scrollController.animateTo(
-                        0.0,
+                        0,
                         curve: Curves.ease,
                         duration: const Duration(milliseconds: 200),
                       );
@@ -106,7 +107,6 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                 ],
               ),
             ),
-            shape: CircularNotchedRectangle(),
           ),
         );
       },

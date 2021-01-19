@@ -7,7 +7,7 @@ part of 'home_repository.dart';
 // **************************************************************************
 
 final $HomeRepository = BindInject(
-  (i) => HomeRepository(i<HnpwaClient>()),
+  (i) => HomeRepository(i<Dio>()),
   singleton: true,
   lazy: true,
 );
