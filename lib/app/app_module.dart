@@ -19,7 +19,7 @@ class AppModule extends MainModule {
           module: HomeModule(),
         ),
         ModularRouter(
-          "/item",
+          '/item',
           module: ItemModule(),
         ),
       ];

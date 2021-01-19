@@ -28,7 +28,7 @@ class Comment extends StatelessWidget {
           child: item.commentsCount == 0
               ? Center(
                   child: Text(
-                    "No comments",
+                    'No comments',
                   ),
                 )
               : _buildCommentList(item),
