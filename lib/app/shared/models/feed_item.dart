@@ -6,30 +6,38 @@ import 'item_type.dart';
 part 'feed_item.g.dart';
 
 @HiveType(typeId: 1)
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class FeedItem extends HiveObject {
   @HiveField(0)
   final int id;
+
   @HiveField(1)
   final String title;
+
   @HiveField(2)
   final int points;
+
   @HiveField(3)
   final String user;
+
   @HiveField(4)
   final int time;
+
   @HiveField(5)
   @JsonKey(name: 'time_ago')
-  @HiveField(6)
   final String timeAgo;
+
   @JsonKey(name: 'comments_count')
-  @HiveField(7)
+  @HiveField(6)
   final int commentsCount;
-  @HiveField(8)
+
+  @HiveField(7)
   final ItemType type;
-  @HiveField(9)
+
+  @HiveField(8)
   final String url;
-  @HiveField(10)
+
+  @HiveField(9)
   final String domain;
 
   FeedItem(this.id, this.title, this.points, this.user, this.time, this.timeAgo, this.commentsCount, this.type,

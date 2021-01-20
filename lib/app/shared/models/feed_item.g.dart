@@ -23,10 +23,10 @@ class FeedItemAdapter extends TypeAdapter<FeedItem> {
       fields[3] as String,
       fields[4] as int,
       fields[5] as String,
-      fields[7] as int,
-      fields[8] as ItemType,
+      fields[6] as int,
+      fields[7] as ItemType,
+      fields[8] as String,
       fields[9] as String,
-      fields[10] as String,
     );
   }
 
@@ -46,13 +46,13 @@ class FeedItemAdapter extends TypeAdapter<FeedItem> {
       ..write(obj.time)
       ..writeByte(5)
       ..write(obj.timeAgo)
-      ..writeByte(7)
+      ..writeByte(6)
       ..write(obj.commentsCount)
-      ..writeByte(8)
+      ..writeByte(7)
       ..write(obj.type)
-      ..writeByte(9)
+      ..writeByte(8)
       ..write(obj.url)
-      ..writeByte(10)
+      ..writeByte(9)
       ..write(obj.domain);
   }
 
