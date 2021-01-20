@@ -51,12 +51,15 @@ class ItemTile extends StatelessWidget {
 
   Widget _buildLeading(int points) {
     return points == null
-        ? Icon(
-            MdiIcons.briefcase,
-            color: Colors.orange,
+        ? Container(
+            height: double.infinity,
+            child: Icon(
+              MdiIcons.briefcase,
+              color: Colors.orange,
+            ),
           )
         : Column(
-            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 '$points',
