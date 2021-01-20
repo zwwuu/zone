@@ -61,7 +61,10 @@ class FeedItemAdapter extends TypeAdapter<FeedItem> {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is FeedItemAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
+      identical(this, other) ||
+      other is FeedItemAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
 }
 
 // **************************************************************************
@@ -106,7 +109,9 @@ T _$enumDecode<T>(
         '${enumValues.values.join(', ')}');
   }
 
-  final value = enumValues.entries.singleWhere((e) => e.value == source, orElse: () => null)?.key;
+  final value = enumValues.entries
+      .singleWhere((e) => e.value == source, orElse: () => null)
+      ?.key;
 
   if (value == null && unknownValue == null) {
     throw ArgumentError('`$source` is not one of the supported values: '

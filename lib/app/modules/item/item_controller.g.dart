@@ -19,7 +19,8 @@ final $ItemController = BindInject(
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$ItemController on _ItemControllerBase, Store {
-  final _$isViewingCommentAtom = Atom(name: '_ItemControllerBase.isViewingComment');
+  final _$isViewingCommentAtom =
+      Atom(name: '_ItemControllerBase.isViewingComment');
 
   @override
   bool get isViewingComment {
@@ -34,11 +35,13 @@ mixin _$ItemController on _ItemControllerBase, Store {
     });
   }
 
-  final _$_ItemControllerBaseActionController = ActionController(name: '_ItemControllerBase');
+  final _$_ItemControllerBaseActionController =
+      ActionController(name: '_ItemControllerBase');
 
   @override
   void switchView() {
-    final _$actionInfo = _$_ItemControllerBaseActionController.startAction(name: '_ItemControllerBase.switchView');
+    final _$actionInfo = _$_ItemControllerBaseActionController.startAction(
+        name: '_ItemControllerBase.switchView');
     try {
       return super.switchView();
     } finally {
@@ -48,7 +51,8 @@ mixin _$ItemController on _ItemControllerBase, Store {
 
   @override
   Future<dynamic> loadItem(String id) {
-    final _$actionInfo = _$_ItemControllerBaseActionController.startAction(name: '_ItemControllerBase.loadItem');
+    final _$actionInfo = _$_ItemControllerBaseActionController.startAction(
+        name: '_ItemControllerBase.loadItem');
     try {
       return super.loadItem(id);
     } finally {

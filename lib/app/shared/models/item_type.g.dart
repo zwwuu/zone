@@ -64,5 +64,8 @@ class ItemTypeAdapter extends TypeAdapter<ItemType> {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is ItemTypeAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
+      identical(this, other) ||
+      other is ItemTypeAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
 }

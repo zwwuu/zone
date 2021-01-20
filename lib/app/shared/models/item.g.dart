@@ -67,7 +67,10 @@ class ItemAdapter extends TypeAdapter<Item> {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) || other is ItemAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
+      identical(this, other) ||
+      other is ItemAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
 }
 
 // **************************************************************************
@@ -83,7 +86,10 @@ Item _$ItemFromJson(Map<String, dynamic> json) {
     json['time'] as int,
     json['time_ago'] as String,
     _$enumDecodeNullable(_$ItemTypeEnumMap, json['type']),
-    (json['comments'] as List)?.map((e) => e == null ? null : Item.fromJson(e as Map<String, dynamic>))?.toList(),
+    (json['comments'] as List)
+        ?.map(
+            (e) => e == null ? null : Item.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
     json['comments_count'] as int,
     json['url'] as String,
     json['domain'] as String,
@@ -116,7 +122,9 @@ T _$enumDecode<T>(
         '${enumValues.values.join(', ')}');
   }
 
-  final value = enumValues.entries.singleWhere((e) => e.value == source, orElse: () => null)?.key;
+  final value = enumValues.entries
+      .singleWhere((e) => e.value == source, orElse: () => null)
+      ?.key;
 
   if (value == null && unknownValue == null) {
     throw ArgumentError('`$source` is not one of the supported values: '
