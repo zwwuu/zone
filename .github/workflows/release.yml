@@ -34,7 +34,8 @@ jobs:
           ALIAS: ${{ secrets.ALIAS }}
           KEY_PATH: key.jks
       - name: Release
-        uses: ncipollo/release-action@v1
-        with:
-          artifacts: "build/app/outputs/apk/release/*.apk"
-          token: ${{ secrets.TOKEN }}
+        uses: marvinpinto/action-automatic-releases@v1
+          with:
+          repo_token: "${{ secrets.TOKEN }}"
+          prerelease: false
+          files: build/app/outputs/apk/release/*.apk
