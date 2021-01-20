@@ -7,7 +7,7 @@ part of 'bookmark_controller.dart';
 // **************************************************************************
 
 final $BookmarkController = BindInject(
-  (i) => BookmarkController(i<BookmarkRepository>()),
+  (i) => BookmarkController(),
   singleton: true,
   lazy: true,
 );

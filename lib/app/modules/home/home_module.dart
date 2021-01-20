@@ -1,6 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../shared/repositories/bookmark_repository.dart';
 import 'home_controller.dart';
 import 'home_page.dart';
 import 'repository/home_repository.dart';
@@ -10,7 +9,6 @@ class HomeModule extends ChildModule {
   List<Bind> get binds => [
         $HomeController,
         $HomeRepository,
-        $BookmarkRepository,
       ];
 
   @override

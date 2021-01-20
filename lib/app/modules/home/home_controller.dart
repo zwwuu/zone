@@ -13,7 +13,7 @@ class HomeController = _HomeControllerBase with _$HomeController;
 
 abstract class _HomeControllerBase with Store {
   final HomeRepository _repository;
-  final BookmarkRepository _bookmarksRepository;
+  final BookmarkRepository _bookmarksRepository = Modular.get();
 
   int _currentPage = 1;
   List<FeedItem> feedItems = [];
@@ -30,7 +30,7 @@ abstract class _HomeControllerBase with Store {
   @observable
   bool isLoadingNextPage = false;
 
-  _HomeControllerBase(this._repository, this._bookmarksRepository);
+  _HomeControllerBase(this._repository);
 
   @action
   Future<void> loadFeedItems() async {

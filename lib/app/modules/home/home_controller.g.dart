@@ -7,7 +7,7 @@ part of 'home_controller.dart';
 // **************************************************************************
 
 final $HomeController = BindInject(
-  (i) => HomeController(i<HomeRepository>(), i<BookmarkRepository>()),
+  (i) => HomeController(i<HomeRepository>()),
   singleton: true,
   lazy: true,
 );

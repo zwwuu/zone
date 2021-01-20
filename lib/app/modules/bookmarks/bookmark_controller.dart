@@ -10,21 +10,21 @@ part 'bookmark_controller.g.dart';
 class BookmarkController = _BookmarksControllerBase with _$BookmarkController;
 
 abstract class _BookmarksControllerBase with Store {
-  final BookmarkRepository _repository;
+  final BookmarkRepository _bookmarksRepository = Modular.get();
 
-  _BookmarksControllerBase(this._repository);
+  _BookmarksControllerBase();
 
   @observable
   ObservableList<FeedItem> bookmarks = ObservableList<FeedItem>();
 
   @action
   Future<void> loadBookmarks() async {
-    bookmarks.addAll(await _repository.getAll());
+    bookmarks.addAll(await _bookmarksRepository.getAll());
   }
 
   @action
   Future<void> deleteBookmark(FeedItem feedItem) async {
-    await _repository.delete(feedItem.key);
+    await _bookmarksRepository.delete(feedItem.key);
     bookmarks.remove(feedItem);
   }
 }
