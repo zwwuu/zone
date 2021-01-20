@@ -34,7 +34,7 @@ jobs:
           ALIAS: ${{ secrets.ALIAS }}
           KEY_PATH: key.jks
       - name: Release
-        uses: marvinpinto/action-automatic-releases@v1.1.0
+        uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: "${{ secrets.TOKEN }}"
           prerelease: false
