@@ -51,6 +51,14 @@ mixin _$BookmarkController on _BookmarksControllerBase, Store {
         .run(() => super.deleteBookmark(feedItem));
   }
 
+  final _$undoDeleteAsyncAction =
+      AsyncAction('_BookmarksControllerBase.undoDelete');
+
+  @override
+  Future<void> undoDelete(int index, FeedItem feedItem) {
+    return _$undoDeleteAsyncAction.run(() => super.undoDelete(index, feedItem));
+  }
+
   @override
   String toString() {
     return '''

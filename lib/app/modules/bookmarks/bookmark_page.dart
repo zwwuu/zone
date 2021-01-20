@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../shared/util/url.dart';
@@ -24,6 +23,12 @@ class _BookmarkPageState extends ModularState<BookmarkPage, BookmarkController> 
   void initState() {
     super.initState();
     controller.loadBookmarks();
+  }
+
+  @override
+  void dispose() {
+    controller.deleteMarked();
+    super.dispose();
   }
 
   @override
@@ -65,10 +70,17 @@ class _BookmarkPageState extends ModularState<BookmarkPage, BookmarkController> 
                     color: Colors.blueGrey,
                     icon: MdiIcons.bookmarkRemove,
                     onTap: () {
+                      Scaffold.of(context).showSnackBar(SnackBar(
+                        content: Text('Bookmark deleted'),
+                        action: SnackBarAction(
+                          label: 'Undo',
+                          onPressed: () {
+                            controller.undoDelete(index, bookmark);
+                          },
+                        ),
+                      ));
+
                       controller.deleteBookmark(bookmark);
-                      Fluttertoast.showToast(
-                        msg: 'Bookmark deleted',
-                      );
                     },
                   ),
                   IconSlideAction(

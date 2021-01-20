@@ -17,6 +17,8 @@ abstract class _BookmarksControllerBase with Store {
   @observable
   ObservableList<FeedItem> bookmarks = ObservableList<FeedItem>();
 
+  List<FeedItem> marked = [];
+
   @action
   Future<void> loadBookmarks() async {
     bookmarks.addAll(await _bookmarksRepository.getAll());
@@ -24,7 +26,19 @@ abstract class _BookmarksControllerBase with Store {
 
   @action
   Future<void> deleteBookmark(FeedItem feedItem) async {
-    await _bookmarksRepository.delete(feedItem.key);
+    marked.add(feedItem);
     bookmarks.remove(feedItem);
+  }
+
+  @action
+  Future<void> undoDelete(int index, FeedItem feedItem) async {
+    marked.remove(feedItem);
+    bookmarks.insert(index, feedItem);
+  }
+
+  Future<void> deleteMarked() async {
+    for (var item in marked) {
+      await _bookmarksRepository.delete(item.key);
+    }
   }
 }
