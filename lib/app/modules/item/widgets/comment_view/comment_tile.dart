@@ -6,8 +6,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:html/parser.dart';
 
 import '../../../../shared/models/item.dart';
-import '../../../../shared/util/subtitle_formatter.dart';
 import '../../../../shared/util/url.dart';
+import '../../../../shared/widgets/tile.dart';
 
 class CommentTile extends StatelessWidget {
   final List<Item> comments;
@@ -31,8 +31,7 @@ class CommentTile extends StatelessWidget {
             ),
           ),
         ),
-        child: ListTile(
-          dense: true,
+        child: Tile(
           title: Html(
             data: content,
             style: {
@@ -42,22 +41,15 @@ class CommentTile extends StatelessWidget {
               await UrlUtil().launchUrl(url);
             },
           ),
-          subtitle: Text.rich(
-            TextSpan(
-              children: [
-                SubtitleFormatter.buildUserText(user),
-                TextSpan(text: '$timeAgo'),
-              ],
-            ),
-          ),
+          user: user,
+          timeAgo: timeAgo,
+          includeLeadingIcon: false,
           onLongPress: () {
             var document = parse(content);
             var parsedString = parse(document.body.text).documentElement.text;
 
             Clipboard.setData(ClipboardData(text: parsedString)).then((_) {
-              Fluttertoast.showToast(
-                msg: 'Copied to clipboard',
-              );
+              Fluttertoast.showToast(msg: 'Copied to clipboard');
             });
           },
         ),

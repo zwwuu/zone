@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-class BookmarkEmptyList extends StatelessWidget {
+class EmptyIndicator extends StatelessWidget {
+  final IconData icon;
+  final String message;
+
+  const EmptyIndicator({Key key, this.icon, this.message}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -16,11 +20,11 @@ class BookmarkEmptyList extends StatelessWidget {
         ),
         child: Wrap(
           direction: Axis.vertical,
+          spacing: 15,
           crossAxisAlignment: WrapCrossAlignment.center,
-          spacing: 10,
           children: [
-            Icon(MdiIcons.inbox),
-            Text('No bookmark saved'),
+            Icon(icon),
+            Text(message),
           ],
         ),
       ),

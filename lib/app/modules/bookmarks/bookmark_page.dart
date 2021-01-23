@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../shared/widgets/bookmark/bookmark_empty_list.dart';
-import '../../shared/widgets/bookmark/bookmark_list.dart';
 import 'bookmark_controller.dart';
+import 'widgets/bookmark_list_body.dart';
 
 class BookmarkPage extends StatefulWidget {
   const BookmarkPage({Key key}) : super(key: key);
@@ -33,11 +31,7 @@ class _BookmarkPageState extends ModularState<BookmarkPage, BookmarkController> 
       appBar: AppBar(
         title: Text('Bookmarks'),
       ),
-      body: Observer(
-        builder: (context) {
-          return controller.bookmarks.isEmpty ? BookmarkEmptyList() : BookmarkList();
-        },
-      ),
+      body: BookmarkListBody(),
     );
   }
 }

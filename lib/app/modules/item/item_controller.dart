@@ -1,3 +1,4 @@
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
@@ -11,13 +12,21 @@ class ItemController = _ItemControllerBase with _$ItemController;
 
 abstract class _ItemControllerBase with Store {
   final ItemRepository _repository;
+  int _id;
+  InAppWebViewController webViewController;
 
+  _ItemControllerBase(this._repository);
+
+  @observable
   ObservableFuture<Item> itemFuture;
 
   @observable
   bool isViewingComment = false;
 
-  _ItemControllerBase(this._repository);
+  @observable
+  bool isLoadingWebContent = false;
+
+  bool get hasWebContent => Uri.parse(itemFuture.value.url).isAbsolute;
 
   @action
   void switchView() {
@@ -26,6 +35,12 @@ abstract class _ItemControllerBase with Store {
 
   @action
   Future loadItem(String id) {
-    return itemFuture = ObservableFuture(_repository.fetchItem(int.parse(id)));
+    _id = int.parse(id);
+    return itemFuture = ObservableFuture(_repository.fetchItem(_id));
+  }
+
+  @action
+  Future reloadItem() {
+    return itemFuture = ObservableFuture(_repository.fetchItem(_id));
   }
 }

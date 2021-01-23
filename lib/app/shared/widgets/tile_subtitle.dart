@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-import '../../util/subtitle_formatter.dart';
+import '../util/subtitle_formatter.dart';
 
-class ItemTileSubtitle extends StatelessWidget {
+class TileSubtitle extends StatelessWidget {
   final String user;
   final String domain;
   final int commentsCount;
   final String timeAgo;
   final int time;
 
-  const ItemTileSubtitle({
+  const TileSubtitle({
     Key key,
     this.user,
     this.domain,

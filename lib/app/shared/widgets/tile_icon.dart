@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import '../../models/item_type.dart';
+import '../models/item_type.dart';
 
-class BookmarkTileIcon extends StatelessWidget {
+class TileIcon extends StatelessWidget {
   final ItemType type;
 
-  const BookmarkTileIcon({Key key, this.type}) : super(key: key);
+  const TileIcon({Key key, this.type}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
