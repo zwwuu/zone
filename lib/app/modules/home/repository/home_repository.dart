@@ -52,11 +52,11 @@ class HomeRepository extends Disposable {
     );
   }
 
-  Future<Feed> jobs() {
+  Future<Feed> jobs({int page = 1}) {
     return _fetchFeed(
       url: '/jobs?page=1',
       currentPage: 1,
-      maxPages: 1,
+      maxPages: 2,
     );
   }
 

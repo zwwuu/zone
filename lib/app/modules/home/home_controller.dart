@@ -67,7 +67,7 @@ abstract class _HomeControllerBase with Store {
           feed = await _repository.show(page: _currentPage);
           break;
         case FeedType.job:
-          feed = await _repository.jobs();
+          feed = await _repository.jobs(page: _currentPage);
           break;
       }
 
