@@ -1,5 +1,4 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../shared/models/feed_item.dart';
@@ -12,7 +11,6 @@ class BookmarkController = _BookmarksControllerBase with _$BookmarkController;
 
 abstract class _BookmarksControllerBase with Store {
   final BookmarkRepository _bookmarksRepository = Modular.get();
-  final SlidableController slidableController = SlidableController();
 
   _BookmarksControllerBase();
 

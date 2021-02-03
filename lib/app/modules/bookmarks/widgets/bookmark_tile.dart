@@ -20,8 +20,6 @@ class BookmarkTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Slidable(
-      key: Key(bookmark.id.toString()),
-      controller: controller.slidableController,
       actionExtentRatio: actionExtentRatio,
       actionPane: SlidableDrawerActionPane(),
       child: Tile(

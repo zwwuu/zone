@@ -1,5 +1,4 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../shared/models/feed_item.dart';
@@ -15,7 +14,6 @@ class HomeController = _HomeControllerBase with _$HomeController;
 abstract class _HomeControllerBase with Store {
   final HomeRepository _repository;
   final BookmarkRepository _bookmarksRepository = Modular.get();
-  final SlidableController slidableController = SlidableController();
 
   int _currentPage = 1;
   List<FeedItem> feedItems = [];

@@ -20,8 +20,6 @@ class FeedTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Slidable(
-      key: Key(feedItem.id.toString()),
-      controller: controller.slidableController,
       actionExtentRatio: actionExtentRatio,
       actionPane: SlidableDrawerActionPane(),
       child: Tile(
