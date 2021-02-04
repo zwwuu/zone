@@ -15,28 +15,33 @@ class CommentViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Tile(
-          title: Text(item.title),
-          user: item.user,
-          points: item.points,
-          domain: item.domain,
-          commentsCount: item.commentsCount,
-          timeAgo: item.timeAgo,
-        ),
-        if (item.content != null) ItemContent(content: item.content),
-        Divider(
-          thickness: dividerThickness,
-        ),
-        Expanded(
-          child: item.commentsCount == 0
-              ? EmptyIndicator(
-                  icon: MdiIcons.commentAlert,
-                  message: 'No comments',
-                )
-              : CommentList(item: item),
-        ),
+    return CustomScrollView(
+      slivers: <Widget>[
+        SliverList(
+          delegate: SliverChildListDelegate(
+            [
+              Tile(
+                title: Text(item.title),
+                user: item.user,
+                points: item.points,
+                domain: item.domain,
+                commentsCount: item.commentsCount,
+                timeAgo: item.timeAgo,
+              ),
+              if (item.content != null) ItemContent(content: item.content),
+              Divider(
+                thickness: dividerThickness,
+                color: Colors.grey,
+              ),
+              item.commentsCount == 0
+                  ? EmptyIndicator(
+                      icon: MdiIcons.commentAlert,
+                      message: 'No comments',
+                    )
+                  : CommentList(item: item)
+            ],
+          ),
+        )
       ],
     );
   }
