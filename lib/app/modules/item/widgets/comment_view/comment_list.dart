@@ -16,7 +16,7 @@ class CommentList extends StatelessWidget {
         content: commentItem.content,
         timeAgo: commentItem.timeAgo,
         comments: commentItem.comments,
-        depth: 0,
+        depth: -1,
       );
     }).toList();
 

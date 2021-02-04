@@ -22,11 +22,11 @@ class CommentTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final commentList = <Widget>[
       Container(
-        margin: EdgeInsets.only(left: depth * 4.0),
+        margin: EdgeInsets.only(left: (depth + 1) * 3.0),
         decoration: BoxDecoration(
           border: Border(
             left: BorderSide(
-              width: 3,
+              width: 2,
               color: _getBorderColor(depth),
             ),
           ),
@@ -74,7 +74,11 @@ class CommentTile extends StatelessWidget {
   }
 
   Color _getBorderColor(int depth) {
-    switch (depth) {
+    if (depth == -1) {
+      return Colors.transparent;
+    }
+
+    switch (depth % 10) {
       case 9:
         return Colors.indigo;
       case 8:
@@ -95,7 +99,7 @@ class CommentTile extends StatelessWidget {
         return Colors.blue;
       case 0:
       default:
-        return Colors.transparent;
+        return Colors.brown;
     }
   }
 }
