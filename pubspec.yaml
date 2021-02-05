@@ -17,6 +17,7 @@ scripts:
   splash: $run flutter_native_splash:create
   apk: $get & $runner build --delete-conflicting-outputs & $build apk --split-per-abi
   appbundle: $get & $runner build --delete-conflicting-outputs & $build appbundle
+
 environment:
   sdk: ">=2.7.0 <3.0.0"
 

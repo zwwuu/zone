@@ -12,6 +12,7 @@ class ItemController = _ItemControllerBase with _$ItemController;
 
 abstract class _ItemControllerBase with Store {
   final ItemRepository _repository;
+
   int _id;
   InAppWebViewController webViewController;
 

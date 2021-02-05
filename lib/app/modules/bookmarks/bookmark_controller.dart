@@ -12,8 +12,6 @@ class BookmarkController = _BookmarksControllerBase with _$BookmarkController;
 abstract class _BookmarksControllerBase with Store {
   final BookmarkRepository _bookmarksRepository = Modular.get();
 
-  _BookmarksControllerBase();
-
   @observable
   ObservableList<FeedItem> bookmarks = ObservableList<FeedItem>();
 
