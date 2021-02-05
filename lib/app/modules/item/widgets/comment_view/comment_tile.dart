@@ -2,14 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_html/style.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:html/parser.dart';
 
+import '../../../../service/url_launch_service.dart';
 import '../../../../shared/models/item.dart';
-import '../../../../shared/util/url.dart';
 import '../../../../shared/widgets/tile.dart';
 
 class CommentTile extends StatelessWidget {
+  final UrlLaunchService urlLaunchService = Modular.get();
+
   final List<Item> comments;
   final int depth;
   final String content;
@@ -37,8 +40,8 @@ class CommentTile extends StatelessWidget {
             style: {
               'body': Style(margin: EdgeInsets.zero),
             },
-            onLinkTap: (url) async {
-              await UrlUtil().launchUrl(url);
+            onLinkTap: (url) {
+              urlLaunchService.launchUrl(url);
             },
           ),
           user: user,

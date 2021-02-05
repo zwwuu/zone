@@ -3,9 +3,9 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../../../service/share_service.dart';
 import '../../../shared/constants.dart';
 import '../../../shared/models/feed_item.dart';
-import '../../../shared/util/url.dart';
 import '../../../shared/widgets/tile.dart';
 import '../bookmark_controller.dart';
 
@@ -14,6 +14,7 @@ class BookmarkTile extends StatelessWidget {
   final FeedItem bookmark;
   final GestureTapCallback onTap;
   final BookmarkController controller = Modular.get();
+  final ShareService shareService = Modular.get();
 
   BookmarkTile({Key key, this.index, this.bookmark, this.onTap}) : super(key: key);
 
@@ -56,7 +57,7 @@ class BookmarkTile extends StatelessWidget {
           color: Colors.indigo,
           icon: MdiIcons.shareVariant,
           onTap: () {
-            UrlUtil().share(title: bookmark.title, url: bookmark.url);
+            shareService.share(title: bookmark.title, url: bookmark.url);
           },
         ),
       ],

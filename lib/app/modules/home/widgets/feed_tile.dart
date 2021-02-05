@@ -4,9 +4,9 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../../../service/share_service.dart';
 import '../../../shared/constants.dart';
 import '../../../shared/models/feed_item.dart';
-import '../../../shared/util/url.dart';
 import '../../../shared/widgets/tile.dart';
 import '../home_controller.dart';
 
@@ -14,6 +14,7 @@ class FeedTile extends StatelessWidget {
   final FeedItem feedItem;
   final GestureTapCallback onTap;
   final HomeController controller = Modular.get();
+  final ShareService shareService = Modular.get();
 
   FeedTile({Key key, this.feedItem, this.onTap}) : super(key: key);
 
@@ -51,7 +52,7 @@ class FeedTile extends StatelessWidget {
           color: Colors.indigo,
           icon: MdiIcons.shareVariant,
           onTap: () {
-            UrlUtil().share(title: feedItem.title, url: feedItem.url);
+            shareService.share(title: feedItem.title, url: feedItem.url);
           },
         ),
       ],

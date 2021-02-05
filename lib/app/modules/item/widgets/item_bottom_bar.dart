@@ -3,12 +3,15 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../../../service/share_service.dart';
+import '../../../service/url_launch_service.dart';
 import '../../../shared/constants.dart';
-import '../../../shared/util/url.dart';
 import '../item_controller.dart';
 
 class ItemBottomBar extends StatelessWidget {
   final ItemController controller = Modular.get();
+  final ShareService shareService = Modular.get();
+  final UrlLaunchService urlLaunchService = Modular.get();
 
   @override
   Widget build(BuildContext context) {
@@ -43,14 +46,14 @@ class ItemBottomBar extends StatelessWidget {
                 IconButton(
                   icon: Icon(MdiIcons.web),
                   tooltip: 'Open in browser',
-                  onPressed: () async {
-                    await UrlUtil().launchUrl(url);
+                  onPressed: () {
+                    urlLaunchService.launchUrl(url);
                   },
                 ),
                 IconButton(
                   icon: Icon(MdiIcons.shareVariant),
                   onPressed: () {
-                    UrlUtil().share(title: title, url: url);
+                    shareService.share(title: title, url: url);
                   },
                 ),
               ],
