@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
+import 'package:zone/app/modules/home/widgets/option_menu_button.dart';
 
 import 'home_controller.dart';
 import 'widgets/dropdown_feed_select.dart';
@@ -41,6 +42,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
     return Scaffold(
       appBar: AppBar(
         title: DropdownFeedSelect(),
+        actions: [OptionMenuButton()],
       ),
       body: FeedListBody(),
       bottomNavigationBar: FeedBottomBar(),

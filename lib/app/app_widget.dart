@@ -15,7 +15,6 @@ class AppWidget extends StatelessWidget {
       title: 'Zone',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
         brightness: Brightness.dark,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
