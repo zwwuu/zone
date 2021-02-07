@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import '../../../shared/constants.dart';
+import '../../../shared/constants/dimens.dart';
 import '../home_controller.dart';
 
 class FeedBottomBar extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import '../../../../shared/constants.dart';
+import '../../../../shared/constants/dimens.dart';
 import '../../../../shared/models/item.dart';
 import '../../../../shared/widgets/empty_indicator.dart';
 import '../../../../shared/widgets/tile.dart';

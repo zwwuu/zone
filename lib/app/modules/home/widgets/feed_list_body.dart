@@ -4,7 +4,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:incrementally_loading_listview/incrementally_loading_listview.dart';
 import 'package:mobx/mobx.dart';
 
-import '../../../shared/constants.dart';
+import '../../../shared/constants/dimens.dart';
 import '../../../shared/widgets/error_indicator.dart';
 import '../../../shared/widgets/loading_indicator.dart';
 import '../home_controller.dart';

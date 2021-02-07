@@ -4,7 +4,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../service/share_service.dart';
-import '../../../shared/constants.dart';
+import '../../../shared/constants/dimens.dart';
 import '../../../shared/models/feed_item.dart';
 import '../../../shared/widgets/tile.dart';
 import '../bookmark_controller.dart';

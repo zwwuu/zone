@@ -3,7 +3,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import '../../../shared/constants.dart';
+import '../../../shared/constants/dimens.dart';
 import '../../../shared/widgets/empty_indicator.dart';
 import '../bookmark_controller.dart';
 import 'bookmark_tile.dart';

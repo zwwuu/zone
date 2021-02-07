@@ -5,7 +5,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 
 import '../../../service/share_service.dart';
 import '../../../service/url_launch_service.dart';
-import '../../../shared/constants.dart';
+import '../../../shared/constants/dimens.dart';
 import '../item_controller.dart';
 
 class ItemBottomBar extends StatelessWidget {
