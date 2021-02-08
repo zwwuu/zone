@@ -55,7 +55,7 @@ class HomeRepository extends Disposable {
   Future<Feed> jobs({int page = 1}) {
     return _fetchFeed(
       url: '/jobs?page=1',
-      currentPage: 1,
+      currentPage: page,
       maxPages: 2,
     );
   }
