@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
-import 'package:zone/app/modules/home/widgets/option_menu_button.dart';
 
 import 'home_controller.dart';
 import 'widgets/dropdown_feed_select.dart';
 import 'widgets/feed_bottom_bar.dart';
 import 'widgets/feed_list_body.dart';
+import 'widgets/option_menu_button.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);

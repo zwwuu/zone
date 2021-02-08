@@ -20,9 +20,6 @@ class WebViewBody extends StatelessWidget {
             InAppWebView(
               initialUrl: controller.itemFuture.value.url,
               initialOptions: InAppWebViewGroupOptions(
-                crossPlatform: InAppWebViewOptions(
-
-                ),
                 android: AndroidInAppWebViewOptions(
                   forceDark: AndroidForceDark.FORCE_DARK_ON,
                 ),
@@ -37,7 +34,7 @@ class WebViewBody extends StatelessWidget {
                 controller.isLoadingWebContent = false;
               },
             ),
-            controller.isLoadingWebContent ? LinearProgressIndicator() : Stack(),
+            if (controller.isLoadingWebContent) LinearProgressIndicator(),
           ],
         );
       },
