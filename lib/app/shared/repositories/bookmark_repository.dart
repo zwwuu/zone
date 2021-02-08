@@ -19,7 +19,7 @@ class BookmarkRepository extends Disposable {
     _init();
   }
 
-  _init() async {
+  void _init() async {
     var dir = await getApplicationDocumentsDirectory();
     Hive.init(dir.path);
     Hive.registerAdapter(ItemTypeAdapter());

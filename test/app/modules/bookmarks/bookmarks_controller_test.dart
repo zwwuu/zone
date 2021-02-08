@@ -12,7 +12,7 @@ void main() {
   });
 
   group('BookmarkController Test', () {
-    test("First Test", () {
+    test('First Test', () {
       expect(bookmark, isInstanceOf<BookmarkController>());
     });
 

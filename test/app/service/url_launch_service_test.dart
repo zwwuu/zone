@@ -1,5 +1,4 @@
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:zone/app/service/url_launch_service.dart';
 
 void main() {

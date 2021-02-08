@@ -15,7 +15,7 @@ void main() {
   });
 
   group('BookmarkRepository Test', () {
-    test("First Test", () {
+    test('First Test', () {
       expect(repository, isInstanceOf<BookmarkRepository>());
     });
 
