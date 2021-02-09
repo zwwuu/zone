@@ -1,4 +1,3 @@
-import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
@@ -15,7 +14,6 @@ abstract class _ItemControllerBase with Store {
   final ItemRepository _repository;
 
   int _id;
-  InAppWebViewController webViewController;
 
   _ItemControllerBase(this._repository);
 
@@ -24,9 +22,6 @@ abstract class _ItemControllerBase with Store {
 
   @observable
   bool isViewingComment = false;
-
-  @observable
-  bool isLoadingWebContent = false;
 
   bool get hasWebContent => !itemFuture.value.domain.isNullOrEmpty();
 

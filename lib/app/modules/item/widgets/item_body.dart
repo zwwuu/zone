@@ -7,7 +7,7 @@ import '../../../shared/widgets/error_indicator.dart';
 import '../../../shared/widgets/loading_indicator.dart';
 import '../item_controller.dart';
 import 'comment_view/comment_view_body.dart';
-import 'webview/webview_body.dart';
+import 'web_view/web_view_body.dart';
 
 class ItemBody extends StatelessWidget {
   final ItemController controller = Modular.get();

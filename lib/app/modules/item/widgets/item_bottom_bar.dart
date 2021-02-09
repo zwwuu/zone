@@ -7,11 +7,13 @@ import '../../../service/share_service.dart';
 import '../../../service/url_launch_service.dart';
 import '../../../shared/constants/dimens.dart';
 import '../item_controller.dart';
+import 'web_view/web_view_body_controller.dart';
 
 class ItemBottomBar extends StatelessWidget {
   final ItemController controller = Modular.get();
   final ShareService shareService = Modular.get();
   final UrlLaunchService urlLaunchService = Modular.get();
+  final WebViewBodyController webViewBodyController = Modular.get();
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class ItemBottomBar extends StatelessWidget {
                     icon: Icon(MdiIcons.refresh),
                     tooltip: 'Reload current page',
                     onPressed: () {
-                      //_webViewKey.currentState?.reload();
+                      webViewBodyController.reload();
                     },
                   ),
                 Spacer(),

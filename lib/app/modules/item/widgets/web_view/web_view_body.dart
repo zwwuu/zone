@@ -3,11 +3,12 @@ import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../item_controller.dart';
+import 'web_view_body_controller.dart';
 
 class WebViewBody extends StatelessWidget {
+  final WebViewBodyController controller = Modular.get();
+
   final String url;
-  final ItemController controller = Modular.get();
 
   WebViewBody({Key key, this.url}) : super(key: key);
 
@@ -18,7 +19,7 @@ class WebViewBody extends StatelessWidget {
         return Stack(
           children: [
             InAppWebView(
-              initialUrl: controller.itemFuture.value.url,
+              initialUrl: url,
               initialOptions: InAppWebViewGroupOptions(
                 android: AndroidInAppWebViewOptions(
                   forceDark: AndroidForceDark.FORCE_DARK_ON,
@@ -39,9 +40,5 @@ class WebViewBody extends StatelessWidget {
         );
       },
     );
-  }
-
-  void reload() {
-    controller.webViewController?.reload();
   }
 }

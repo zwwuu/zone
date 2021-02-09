@@ -50,22 +50,6 @@ mixin _$ItemController on _ItemControllerBase, Store {
     });
   }
 
-  final _$isLoadingWebContentAtom =
-      Atom(name: '_ItemControllerBase.isLoadingWebContent');
-
-  @override
-  bool get isLoadingWebContent {
-    _$isLoadingWebContentAtom.reportRead();
-    return super.isLoadingWebContent;
-  }
-
-  @override
-  set isLoadingWebContent(bool value) {
-    _$isLoadingWebContentAtom.reportWrite(value, super.isLoadingWebContent, () {
-      super.isLoadingWebContent = value;
-    });
-  }
-
   final _$_ItemControllerBaseActionController =
       ActionController(name: '_ItemControllerBase');
 
@@ -106,8 +90,7 @@ mixin _$ItemController on _ItemControllerBase, Store {
   String toString() {
     return '''
 itemFuture: ${itemFuture},
-isViewingComment: ${isViewingComment},
-isLoadingWebContent: ${isLoadingWebContent}
+isViewingComment: ${isViewingComment}
     ''';
   }
 }
