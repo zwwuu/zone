@@ -3,6 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../shared/models/item.dart';
+import '../../shared/util/extensions.dart';
 import 'repository/item_repository.dart';
 
 part 'item_controller.g.dart';
@@ -27,7 +28,7 @@ abstract class _ItemControllerBase with Store {
   @observable
   bool isLoadingWebContent = false;
 
-  bool get hasWebContent => Uri.parse(itemFuture.value.url).isAbsolute;
+  bool get hasWebContent => !itemFuture.value.domain.isNullOrEmpty();
 
   @action
   void switchView() {
