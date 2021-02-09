@@ -29,6 +29,7 @@ class _ItemPageState extends ModularState<ItemPage, ItemController> {
       builder: (context) {
         var finishLoading = controller.itemFuture.status == FutureStatus.fulfilled;
         return Scaffold(
+          appBar: AppBar(),
           body: ItemBody(),
           bottomNavigationBar: finishLoading ? ItemBottomBar() : null,
         );
