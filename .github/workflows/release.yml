@@ -1,0 +1,29 @@
+name: release
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    name: release apk
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+      - name: Decode android/key.jks
+        run: echo "${{ secrets.KEY_STORE }}" | base64 --decode > android/key.jks
+      - name: Decode android/key.properties
+        run: echo "${{ secrets.KEY_PROPERTIES }}" | base64 --decode > android/key.properties
+      - run: flutter pub get
+      - run: flutter packages pub run build_runner build --delete-conflicting-outputs
+      - run: flutter pub run flutter_native_splash:create
+      - run: flutter build apk --split-per-abi
+      - run: flutter build appbundle
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: "build/app/outputs/apk/release/*.apk,build/app/outputs/bundle/release/*.aab"

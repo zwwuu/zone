@@ -1,0 +1,42 @@
+name: zone
+description: Yet another HackerNews client.
+publish_to: 'none'
+
+version: 0.0.1+3
+
+environment:
+  sdk: '>=2.18.5 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^0.13.5
+  url_launcher: ^6.1.7
+  share_plus: ^6.3.0
+  json_annotation: ^4.7.0
+  path_provider: ^2.0.11
+  flutter_riverpod: ^2.1.3
+  isar: ^3.0.5
+  isar_flutter_libs: ^3.0.5
+  google_mobile_ads: ^2.3.0
+  shimmer: ^2.0.0
+  flutter_widget_from_html: ^0.9.0+2
+  cached_network_image: ^3.2.3
+  webview_flutter: ^4.0.1
+  flutter_native_splash: ^2.2.16
+  syncfusion_flutter_pdfviewer: ^20.4.42
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.1
+  isar_generator: ^3.0.5
+  build_runner: ^2.3.3
+  json_serializable: ^6.5.4
+
+flutter:
+  uses-material-design: true
+
+flutter_native_splash:
+  color: "#20272B"
+  image: assets/images/splash.png
