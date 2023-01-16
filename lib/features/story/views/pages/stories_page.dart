@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:zone/core/config/app_constants.dart';
+import 'package:zone/core/widgets/app_about_dialog.dart';
 import 'package:zone/features/bookmark/views/pages/bookmarks_page.dart';
 import 'package:zone/features/story/models/stories_type.dart';
 import 'package:zone/features/story/views/widgets/story_list.dart';
@@ -112,6 +113,16 @@ class _StoriesPageState extends State<StoriesPage> {
                       MaterialPageRoute(
                         builder: (context) => const BookmarksPage(),
                       ),
+                    );
+                  },
+                ),
+                IconButton(
+                  icon: const Icon(Icons.info),
+                  tooltip: 'about',
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) => const AppAboutDialog(),
                     );
                   },
                 ),
