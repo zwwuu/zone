@@ -2,7 +2,7 @@ name: zone
 description: Yet another HackerNews client.
 publish_to: 'none'
 
-version: 0.0.1+6
+version: 0.0.1+7
 
 environment:
   sdk: '>=2.18.5 <3.0.0'

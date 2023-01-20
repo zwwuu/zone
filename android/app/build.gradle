@@ -65,6 +65,9 @@ android {
                 exclude "x86"
             }
         }
+        ndk {
+            abiFilters 'arm64-v8a', 'armeabi-v7a', 'x86_64'
+        }
     }
 
     signingConfigs {
