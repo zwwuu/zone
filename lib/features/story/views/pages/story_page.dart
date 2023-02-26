@@ -49,6 +49,7 @@ class StoryPage extends StatelessWidget {
             ),
           ),
           floatingActionButton: FloatingActionButton(
+            tooltip: 'View story',
             onPressed: () {
               Navigator.push(
                 context,
