@@ -8,7 +8,7 @@ import Foundation
 import audio_session
 import isar_flutter_libs
 import just_audio
-import path_provider_macos
+import path_provider_foundation
 import share_plus
 import sqflite
 import syncfusion_pdfviewer_macos
