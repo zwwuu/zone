@@ -47,13 +47,13 @@ class StoryInfo extends ConsumerWidget {
                     const SizedBox(width: 4),
                     Text(
                       story.score!.toCompact(),
-                      style: Theme.of(context).textTheme.headline6,
+                      style: Theme.of(context).textTheme.titleLarge,
                     ),
                   ],
                 ),
                 RichText(
                   text: TextSpan(
-                    style: Theme.of(context).textTheme.subtitle2,
+                    style: Theme.of(context).textTheme.titleSmall,
                     children: [
                       const TextSpan(
                         text: 'by ',
@@ -78,7 +78,7 @@ class StoryInfo extends ConsumerWidget {
               ? const Text('[deleted]', style: TextStyle(color: Colors.grey))
               : Text(
                   story.title,
-                  style: Theme.of(context).textTheme.headline6,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
           const SizedBox(height: 8),
           Wrap(

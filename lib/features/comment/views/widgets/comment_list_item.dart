@@ -61,7 +61,7 @@ class _CommentListItemState extends ConsumerState<CommentListItem> {
               children: [
                 RichText(
                   text: TextSpan(
-                    style: Theme.of(context).textTheme.subtitle1,
+                    style: Theme.of(context).textTheme.titleMedium,
                     children: [
                       TextSpan(
                           text: widget.comment.deleted
@@ -99,7 +99,7 @@ class _CommentListItemState extends ConsumerState<CommentListItem> {
                       style: TextStyle(color: Colors.grey))
                   : HtmlContent(
                       html: widget.comment.text,
-                      textStyle: Theme.of(context).textTheme.bodyText2),
+                      textStyle: Theme.of(context).textTheme.bodyMedium),
             ),
             onTap: () {
               if (widget.comment.kids.isNotEmpty) {

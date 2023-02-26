@@ -11,7 +11,7 @@ class EmptyIndicator extends StatelessWidget {
         children: [
           const Icon(Icons.info, size: 64),
           const SizedBox(height: 16),
-          Text("It's empty here", style: Theme.of(context).textTheme.subtitle2),
+          Text("It's empty here", style: Theme.of(context).textTheme.titleSmall),
         ],
       ),
     );

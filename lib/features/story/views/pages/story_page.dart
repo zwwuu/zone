@@ -38,7 +38,7 @@ class StoryPage extends StatelessWidget {
                       ] else if (story.text.isNotEmpty)
                         HtmlContent(
                             html: story.text,
-                            textStyle: Theme.of(context).textTheme.bodyText1),
+                            textStyle: Theme.of(context).textTheme.bodyLarge),
                       if (story.type == ItemType.poll) const StoryPoll(),
                       StoryActions(story: story),
                     ],
