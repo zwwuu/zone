@@ -1,8 +1,15 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
+import 'dart:io';
 
-import 'app/app_module.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:zone/zone_app.dart';
 
 void main() {
-  runApp(ModularApp(module: AppModule()));
+  WidgetsFlutterBinding.ensureInitialized();
+  if (Platform.isAndroid) {
+    MobileAds.instance.initialize();
+  }
+
+  runApp(const ProviderScope(child: ZoneApp()));
 }

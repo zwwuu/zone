@@ -1,40 +1,19 @@
-# Zone for Hacker News
+# zone
 
-![Build release](https://github.com/wuuzw/zone/workflows/Build%20release/badge.svg)
+Yet another Hacker News client; built with [Flutter](https://flutter.dev/), [Riverpod](https://riverpod.dev/), [Isar](https://isar.dev/), and [Hacker News API](https://github.com/HackerNews/API).
 
-Zone is yet another Hacker News client, built with [Flutter], [Slidy], and [Hacker News API].
+![zone app frontpage](screenshots/screenshot-0.png)
 
-![screenshot][screenshot]
+## Getting Started
 
-## Setup
-Clone this repo to your machine
+This project is a starting point for a Flutter application.
 
-**Requirements**
-- Android SDK tools
-- Android platform tools
-- Dart
-- Flutter
-- Slidy
+A few resources to get you started if this is your first Flutter project:
 
-**Build**
-```shell script
-# install slidy
-pub global activate slidy
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-# build apks for android
-slidy run apk
-```
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## License
-[Apache License 2.0]
-
-[Flutter]: https://flutter.dev/
-[Slidy]: https://github.com/Flutterando/slidy
-[Hacker News API]: https://hackerwebapp.com/
-[Apache License 2.0]: LICENSE
-[screenshot]: screenshots/screenshot_1.png
