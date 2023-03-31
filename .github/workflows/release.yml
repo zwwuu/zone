@@ -1,41 +1,29 @@
-name: Build release
+name: release
 
 on:
   push:
     tags:
-      - 'v*'
+      - '*'
 
 jobs:
   build:
+    name: release apk
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup cache
-        uses: actions/cache@v2
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
         with:
-          path: /opt/hostedtoolcache/flutter
-          key: ${{ runner.os }}-flutter
-      - name: Setup Java
-        uses: actions/setup-java@v1
-        with:
-          java-version: '12.x'
-      - run: echo $SIGNING_KEY | base64 -d > android/app/key.jks
-        env:
-          SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v1
+          channel: 'stable'
+          cache: true
+      - name: Decode android/key.jks
+        run: echo "${{ secrets.KEY_STORE }}" | base64 --decode > android/key.jks
+      - name: Decode android/key.properties
+        run: echo "${{ secrets.KEY_PROPERTIES }}" | base64 --decode > android/key.properties
       - run: flutter pub get
-      - run: flutter pub run flutter_launcher_icons:main
+      - run: flutter packages pub run build_runner build --delete-conflicting-outputs
+      - run: flutter pub run flutter_native_splash:create
       - run: flutter build apk --split-per-abi
-        env:
-          KEY_STORE_PASSWORD: ${{ secrets.KEY_STORE_PASSWORD }}
-          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-          ALIAS: ${{ secrets.ALIAS }}
-          KEY_PATH: key.jks
-      - name: Release
-        uses: marvinpinto/action-automatic-releases@latest
+      - run: flutter build appbundle
+      - uses: ncipollo/release-action@v1
         with:
-          repo_token: "${{ secrets.TOKEN }}"
-          prerelease: false
-          files: build/app/outputs/apk/release/*.apk
+          artifacts: "build/app/outputs/apk/release/*.apk,build/app/outputs/bundle/release/*.aab"
