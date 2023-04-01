@@ -14,17 +14,17 @@ dependencies:
   url_launcher: ^6.1.10
   share_plus: ^6.3.1
   json_annotation: ^4.8.0
-  path_provider: ^2.0.13
-  flutter_riverpod: ^2.2.0
+  path_provider: ^2.0.14
+  flutter_riverpod: ^2.3.2
   isar: ^3.0.5
   isar_flutter_libs: ^3.0.5
-  google_mobile_ads: ^2.3.0
+  google_mobile_ads: ^2.4.0
   shimmer: ^2.0.0
   flutter_widget_from_html: ^0.10.0
   cached_network_image: ^3.2.3
-  webview_flutter: ^4.0.5
-  flutter_native_splash: ^2.2.18
-  syncfusion_flutter_pdfviewer: ^20.4.51
+  webview_flutter: ^4.0.7
+  flutter_native_splash: ^2.2.19
+  syncfusion_flutter_pdfviewer: ^21.1.37
 
 dev_dependencies:
   flutter_test:
