@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "11068750117",
+    "project_id": "zone-21d0d",
+    "storage_bucket": "zone-21d0d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:11068750117:android:8c3d2fcd19eacf536f02cc",
+        "android_client_info": {
+          "package_name": "dev.zwwuu.zone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "11068750117-ovblt6o5dnbp0ehndg89ik9g79uv8dt9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCY3E0Rib0j2LlcGOicxizK-pOS5NR8PVs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "11068750117-ovblt6o5dnbp0ehndg89ik9g79uv8dt9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "11068750117-39ufg7qtc4j2aacb5ppitdkb7h3cqj2h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "dev.zwwuu.zone"
+              }
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-3969090471878757~3577953249"
+    }
+  ],
+  "configuration_version": "1"
+}
